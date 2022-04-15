@@ -11,6 +11,13 @@ type Client struct {
 	conn net.Conn
 }
 
+// NewClient creates a new client
+func NewClient(conn net.Conn) *Client {
+	return &Client{
+		conn: conn,
+	}
+}
+
 //Call将函数原型转换成函数
 func (c *Client) Call(serviceName string, fptr []interface{}) {
 	//调用 reflect.ValueOf 获取变量指针；
